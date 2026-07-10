@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thông tin điểm đến | Hồn Việt</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <style>
+      body {
+        background: #f5f7fb;
+      }
+      .content-page {
+        max-width: 900px;
+        margin: 32px auto;
+        padding: 24px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+      }
+      .content-page img {
+        width: 100%;
+        border-radius: 16px;
+        max-height: 320px;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+      .content-page .meta {
+        color: #667085;
+        margin-bottom: 16px;
+      }
+      .content-page .bill-card {
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 16px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">HV</div>
+          <div>
+            <div class="brand-name">Hồn Việt</div>
+            <div class="brand-subtitle">Lịch sử & văn hóa dân tộc</div>
+          </div>
+        </div>
+        <div class="top-actions">
+          <a href="index.html" class="secondary-btn">Về trang chủ</a>
+        </div>
+      </header>
+
+      <main class="content-page">
+        <div id="contentStatus">Đang tải nội dung điểm đến...</div>
+      </main>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        query,
+        where,
+        getDocs,
+      } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCmTR4Pclb8pLQ_qlPQUVXlAFpKrbpo5lc",
+        authDomain: "spck-nextgen.firebaseapp.com",
+        projectId: "spck-nextgen",
+        storageBucket: "spck-nextgen.firebasestorage.app",
+        messagingSenderId: "118699058332",
+        appId: "1:118699058332:web:c22e988722f845d33e3959",
+        measurementId: "G-RPXCTDN110",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+      const params = new URLSearchParams(window.location.search);
+      const destinationId = params.get("destination") || "thang-long";
+      const statusEl = document.getElementById("contentStatus");
+
+      async function loadDestinationContent() {
+        const contentsRef = collection(db, "destinationContents");
+        const q = query(
+          contentsRef,
+          where("destinationId", "==", destinationId),
+        );
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+          statusEl.innerHTML =
+            "<p>Không tìm thấy nội dung cho điểm đến này.</p>";
+          return;
+        }
+
+        const data = snapshot.docs[0].data();
+        const ticket = JSON.parse(
+          sessionStorage.getItem("lastTicket") || "null",
+        );
+        statusEl.innerHTML = `
+          <img src="${data.image}" alt="${data.title}" />
+          <h1>${data.title}</h1>
+          <p class="meta">${data.intro}</p>
+          <p>${data.content}</p>
+          <div class="bill-card">
+            <h3>Hóa đơn của bạn</h3>
+            <p><strong>Khách hàng:</strong> ${ticket?.customerName || ""}</p>
+            <p><strong>Điểm đến:</strong> ${ticket?.destinationName || data.title}</p>
+            <p><strong>Số lượng:</strong> ${ticket?.quantity || 1}</p>
+            <p><strong>Tổng tiền:</strong> ${ticket?.totalAmount?.toLocaleString("vi-VN") || 0}đ</p>
+            <p><strong>Thông báo:</strong> Vé và bill sẽ được gửi tới email nhận vé của bạn.</p>
+          </div>
+        `;
+      }
+
+      onAuthStateChanged(auth, () => {
+        loadDestinationContent();
+      });
+    </script>
+  </body>
+</html>

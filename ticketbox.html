@@ -73,11 +73,19 @@
               <div class="form-row">
                 <label class="form-label">
                   <span>Tên khách hàng</span>
-                  <input type="text" placeholder="Nhập họ tên" required />
+                  <input
+                    id="customerName"
+                    name="customerName"
+                    type="text"
+                    placeholder="Nhập họ tên"
+                    required
+                  />
                 </label>
                 <label class="form-label">
                   <span>Năm sinh</span>
                   <input
+                    id="birthYear"
+                    name="birthYear"
                     type="number"
                     min="1900"
                     max="2100"
@@ -90,22 +98,34 @@
               <div class="form-row">
                 <label class="form-label">
                   <span>Giới tính</span>
-                  <select required>
+                  <select id="gender" name="gender" required>
                     <option value="">Chọn giới tính</option>
-                    <option>Nam</option>
-                    <option>Nữ</option>
-                    <option>Khác</option>
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                    <option value="Khác">Khác</option>
                   </select>
                 </label>
                 <label class="form-label">
                   <span>Số điện thoại</span>
-                  <input type="tel" placeholder="0123 456 789" required />
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="0123 456 789"
+                    required
+                  />
                 </label>
               </div>
 
               <label class="form-label">
                 <span>Email nhận vé</span>
-                <input type="email" placeholder="example@email.com" required />
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="example@email.com"
+                  required
+                />
               </label>
 
               <div class="form-row">
@@ -207,70 +227,6 @@
       </footer>
     </div>
 
-    <script>
-      const destinationData = {
-        "thang-long": {
-          name: "Hoàng Thành Thăng Long",
-          adult: 120000,
-          child: 60000,
-          rule: "Giá vé áp dụng cho khách tham quan trong ngày tại di tích trung tâm Hà Nội.",
-        },
-        hue: {
-          name: "Kinh Thành Huế",
-          adult: 150000,
-          child: 75000,
-          rule: "Vé trẻ em áp dụng cho trẻ em từ 6 đến 12 tuổi theo quy định của khu di tích.",
-        },
-        "son-la": {
-          name: "Bản Cát Cánh - Sơn La",
-          adult: 100000,
-          child: 50000,
-          rule: "Giá vé có thể thay đổi vào các dịp lễ hội và sự kiện đặc biệt.",
-        },
-      };
-
-      const destinationSelect = document.getElementById("destinationSelect");
-      const quantityInput = document.getElementById("ticketQuantity");
-      const destinationLabel = document.getElementById("destinationLabel");
-      const ticketSummary = document.getElementById("ticketSummary");
-      const ticketRule = document.getElementById("ticketRule");
-      const ticketTypeRadios = document.querySelectorAll(
-        'input[name="ticketType"]',
-      );
-
-      function updateTicketSummary() {
-        const selectedDestination = destinationData[destinationSelect.value];
-        const ticketType = document.querySelector(
-          'input[name="ticketType"]:checked',
-        ).value;
-        const quantity = Math.max(1, Number(quantityInput.value) || 1);
-        const price =
-          ticketType === "adult"
-            ? selectedDestination.adult
-            : selectedDestination.child;
-        const total = price * quantity;
-
-        destinationLabel.textContent = selectedDestination.name;
-        ticketSummary.textContent = `${ticketType === "adult" ? "Người lớn" : "Trẻ em"}: ${price.toLocaleString("vi-VN")}đ mỗi vé · Tổng: ${total.toLocaleString("vi-VN")}đ`;
-        ticketRule.textContent = selectedDestination.rule;
-      }
-
-      destinationSelect.addEventListener("change", updateTicketSummary);
-      quantityInput.addEventListener("input", updateTicketSummary);
-      ticketTypeRadios.forEach((radio) =>
-        radio.addEventListener("change", updateTicketSummary),
-      );
-
-      document
-        .querySelector(".booking-form")
-        .addEventListener("submit", (event) => {
-          event.preventDefault();
-          alert(
-            "Đặt vé thành công! Vé sẽ được gửi tới email của bạn trong vài phút.",
-          );
-        });
-
-      updateTicketSummary();
-    </script>
+    <script type="module" src="JS/ticketbox.js"></script>
   </body>
 </html>

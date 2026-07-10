@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap");
 
 /* Login page styles — builds on common CSS/style.css */
 .auth-page {
@@ -15,7 +15,13 @@
 .auth-header .brand-mark,
 .auth-card .primary-btn,
 .auth-card .secondary-btn {
-  font-family: 'Manrope', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family:
+    "Manrope",
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
 }
 
 .auth-submit {
@@ -108,6 +114,49 @@
   font-weight: 800;
   font-family: "Inter", sans-serif;
   transition: background 0.2s ease-in-out;
+}
+
+.google-btn,
+.secondary-btn {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(18, 18, 18, 0.12);
+  background: #fff;
+  color: #141414;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease-in-out,
+    transform 0.2s ease;
+}
+
+.google-btn:hover,
+.secondary-btn:hover {
+  background: #f4f7ff;
+  transform: translateY(-1px);
+}
+
+.google-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.google-btn::before {
+  content: "G";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: #4285f4;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.85rem;
 }
 
 .auth-foot {

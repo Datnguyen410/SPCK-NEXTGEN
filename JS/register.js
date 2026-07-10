@@ -5,6 +5,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -29,6 +31,8 @@ const confirmPasswordInput = document.querySelector(
   'input[name="password_confirm"]',
 );
 const registerBtn = document.querySelector(".auth-submit");
+const googleBtn = document.querySelector(".google-btn");
+const googleProvider = new GoogleAuthProvider();
 
 function showMessage(message, type = "error") {
   const messageDiv = document.createElement("div");
@@ -132,3 +136,47 @@ registerForm.addEventListener("submit", async (e) => {
     showMessage(errorMessage, "error");
   }
 });
+
+if (googleBtn) {
+  googleBtn.addEventListener("click", async () => {
+    clearMessages();
+
+    try {
+      registerBtn.disabled = true;
+      googleBtn.disabled = true;
+      googleBtn.textContent = "Đang xử lý...";
+
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      if (!user.displayName && fullNameInput.value.trim()) {
+        await updateProfile(user, { displayName: fullNameInput.value.trim() });
+      }
+
+      showMessage("Đăng ký/đăng nhập bằng Google thành công!", "success");
+      setTimeout(() => {
+        window.location.href = "ticketbox.html";
+      }, 1200);
+    } catch (error) {
+      registerBtn.disabled = false;
+      googleBtn.disabled = false;
+      googleBtn.textContent = "Đăng ký bằng Google";
+
+      let errorMessage = "Đăng ký bằng Google thất bại";
+      if (error.code === "auth/popup-closed-by-user") {
+        errorMessage = "Bạn đã đóng cửa sổ đăng nhập. Vui lòng thử lại.";
+      } else if (error.code === "auth/cancelled-popup-request") {
+        errorMessage = "Yêu cầu đăng nhập đã bị hủy. Vui lòng thử lại.";
+      } else if (error.code === "auth/popup-blocked") {
+        errorMessage =
+          "Trình duyệt chặn popup. Vui lòng mở lại hoặc cho phép popup.";
+      } else if (error.code === "auth/unauthorized-domain") {
+        errorMessage =
+          "Miền hiện tại chưa được phép cho OAuth. Vui lòng thêm 127.0.0.1 hoặc tên miền của bạn vào Firebase Console > Authentication > Authorized domains.";
+      } else {
+        errorMessage = error.message;
+      }
+
+      showMessage(errorMessage, "error");
+    }
+  });
+}
