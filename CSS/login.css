@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+
+/* Login page styles — builds on common CSS/style.css */
+.auth-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 48px 0;
+}
+
+/* Use Manrope for auth buttons and accents to give a refined sans-serif look */
+.auth-submit,
+.auth-foot a,
+.auth-header .brand-mark,
+.auth-card .primary-btn,
+.auth-card .secondary-btn {
+  font-family: 'Manrope', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.auth-submit {
+  letter-spacing: 0.02em;
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: none;
+}
+
+.auth-foot a {
+  font-weight: 700;
+}
+
+.auth-card {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 18px 46px rgba(16, 24, 32, 0.08);
+  max-width: 620px;
+  width: 100%;
+}
+
+.auth-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.auth-header .brand-mark {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(31, 94, 255, 0.18);
+}
+
+.auth-header h1 {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.auth-header .muted {
+  color: var(--gray-dark);
+  font-size: 0.95rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--gray-dark);
+}
+
+.form-label input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(18, 18, 18, 0.08);
+  background: rgba(250, 250, 255, 0.98);
+  font-size: 0.98rem;
+}
+
+.auth-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-inline {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--gray-dark);
+  font-weight: 600;
+}
+
+.auth-submit {
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-family: "Inter", sans-serif;
+  transition: background 0.2s ease-in-out;
+}
+
+.auth-foot {
+  margin-top: 10px;
+  color: var(--gray-dark);
+}
+
+.auth-foot a {
+  color: var(--blue-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-content {
+  max-width: 520px;
+  text-align: left;
+}
+
+.visual-content h3 {
+  color: var(--blue-dark);
+  margin-bottom: 8px;
+}
+
+.visual-content p {
+  color: var(--gray-dark);
+  margin-bottom: 16px;
+}
+
+.visual-content img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 16px 38px rgba(16, 24, 32, 0.12);
+}
+
+@media (max-width: 900px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+    padding: 28px 0;
+  }
+
+  .auth-visual {
+    order: 2;
+  }
+
+  .auth-card {
+    order: 1;
+  }
+}

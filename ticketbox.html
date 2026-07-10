@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đặt vé | Hồn Việt</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">HV</div>
+          <div>
+            <div class="brand-name">Hồn Việt</div>
+            <div class="brand-subtitle">Lịch sử & văn hóa dân tộc</div>
+          </div>
+        </div>
+
+        <div class="search-box">
+          <input
+            type="search"
+            placeholder="Tìm kiếm di tích, lễ hội, văn hóa"
+          />
+        </div>
+
+        <div class="top-actions">
+          <a href="index.html" class="secondary-btn">Về trang chủ</a>
+        </div>
+      </header>
+
+      <nav class="main-nav">
+        <a href="index.html">Trang chủ</a>
+        <a href="#">Tin tức</a>
+        <a href="#">Khám phá</a>
+        <a href="#">Liên hệ</a>
+      </nav>
+
+      <main class="main-content ticket-page">
+        <section class="ticket-hero">
+          <div class="ticket-hero-content">
+            <span class="eyebrow">Đặt vé trực tuyến</span>
+            <h1>Đặt chỗ trải nghiệm di sản Việt Nam</h1>
+            <p>
+              Chọn điểm đến, nhập thông tin khách hàng và nhận vé qua email chỉ
+              trong vài phút.
+            </p>
+            <div class="ticket-badges">
+              <span>✔ Hỗ trợ đặt vé nhanh</span>
+              <span>✔ Giá vé theo từng điểm đến</span>
+              <span>✔ Xác nhận qua email</span>
+            </div>
+          </div>
+
+          <div class="ticket-hero-card">
+            <h3>Thông tin vé hiện tại</h3>
+            <div class="ticket-price-box">
+              <span id="destinationLabel">Hoàng Thành Thăng Long</span>
+              <strong id="ticketSummary"
+                >Người lớn: 120.000đ mỗi vé · Tổng: 120.000đ</strong
+              >
+              <p id="ticketRule">
+                Giá vé áp dụng cho khách tham quan trong ngày.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="booking-grid">
+          <div class="booking-card booking-form-card">
+            <h2>Thông tin khách hàng</h2>
+            <form class="booking-form">
+              <div class="form-row">
+                <label class="form-label">
+                  <span>Tên khách hàng</span>
+                  <input type="text" placeholder="Nhập họ tên" required />
+                </label>
+                <label class="form-label">
+                  <span>Năm sinh</span>
+                  <input
+                    type="number"
+                    min="1900"
+                    max="2100"
+                    placeholder="Ví dụ 1998"
+                    required
+                  />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label">
+                  <span>Giới tính</span>
+                  <select required>
+                    <option value="">Chọn giới tính</option>
+                    <option>Nam</option>
+                    <option>Nữ</option>
+                    <option>Khác</option>
+                  </select>
+                </label>
+                <label class="form-label">
+                  <span>Số điện thoại</span>
+                  <input type="tel" placeholder="0123 456 789" required />
+                </label>
+              </div>
+
+              <label class="form-label">
+                <span>Email nhận vé</span>
+                <input type="email" placeholder="example@email.com" required />
+              </label>
+
+              <div class="form-row">
+                <label class="form-label">
+                  <span>Điểm đến</span>
+                  <select id="destinationSelect" required>
+                    <option value="thang-long">Hoàng Thành Thăng Long</option>
+                    <option value="hue">Kinh Thành Huế</option>
+                    <option value="son-la">Bản Cát Cánh - Sơn La</option>
+                  </select>
+                </label>
+                <label class="form-label">
+                  <span>Số lượng vé</span>
+                  <input
+                    id="ticketQuantity"
+                    type="number"
+                    min="1"
+                    max="10"
+                    value="1"
+                    required
+                  />
+                </label>
+              </div>
+
+              <div class="ticket-type-group">
+                <span>Loại vé</span>
+                <div class="ticket-type-options">
+                  <label class="ticket-type-card">
+                    <input
+                      type="radio"
+                      name="ticketType"
+                      value="adult"
+                      checked
+                    />
+                    <strong>Người lớn</strong>
+                    <small>Phù hợp khách tham quan chính thức</small>
+                  </label>
+                  <label class="ticket-type-card">
+                    <input type="radio" name="ticketType" value="child" />
+                    <strong>Trẻ em</strong>
+                    <small>Áp dụng theo quy định từng điểm đến</small>
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="primary-btn ticket-submit">
+                Đặt vé ngay
+              </button>
+            </form>
+          </div>
+
+          <aside class="booking-card booking-summary-card">
+            <h3>Điểm đến nổi bật</h3>
+            <ul class="destination-list">
+              <li>
+                <strong>Hoàng Thành Thăng Long</strong>
+                <span>Di sản cấp quốc gia · Trung tâm Hà Nội</span>
+              </li>
+              <li>
+                <strong>Kinh Thành Huế</strong>
+                <span>Di sản văn hóa thế giới · Cố đô Huế</span>
+              </li>
+              <li>
+                <strong>Bản Cát Cánh - Sơn La</strong>
+                <span>Không gian văn hóa dân tộc · Sơn La</span>
+              </li>
+            </ul>
+
+            <div class="summary-note">
+              <h4>Quy định vé</h4>
+              <p>
+                Mức giá vé người lớn và trẻ em sẽ thay đổi tùy theo từng di
+                tích. Vé sẽ được gửi tới email trong vòng 5 phút sau khi thanh
+                toán.
+              </p>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <div class="brand brand-footer">
+            <div class="brand-mark">HV</div>
+            <div>
+              <div class="brand-name">Hồn Việt</div>
+              <div class="brand-subtitle">Lịch sử & văn hóa dân tộc</div>
+            </div>
+          </div>
+          <p>
+            Khám phá câu chuyện đất nước qua từng di tích, lễ hội và vùng đất.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Giới thiệu</a>
+          <a href="#">Tin tức</a>
+          <a href="#">Liên hệ</a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const destinationData = {
+        "thang-long": {
+          name: "Hoàng Thành Thăng Long",
+          adult: 120000,
+          child: 60000,
+          rule: "Giá vé áp dụng cho khách tham quan trong ngày tại di tích trung tâm Hà Nội.",
+        },
+        hue: {
+          name: "Kinh Thành Huế",
+          adult: 150000,
+          child: 75000,
+          rule: "Vé trẻ em áp dụng cho trẻ em từ 6 đến 12 tuổi theo quy định của khu di tích.",
+        },
+        "son-la": {
+          name: "Bản Cát Cánh - Sơn La",
+          adult: 100000,
+          child: 50000,
+          rule: "Giá vé có thể thay đổi vào các dịp lễ hội và sự kiện đặc biệt.",
+        },
+      };
+
+      const destinationSelect = document.getElementById("destinationSelect");
+      const quantityInput = document.getElementById("ticketQuantity");
+      const destinationLabel = document.getElementById("destinationLabel");
+      const ticketSummary = document.getElementById("ticketSummary");
+      const ticketRule = document.getElementById("ticketRule");
+      const ticketTypeRadios = document.querySelectorAll(
+        'input[name="ticketType"]',
+      );
+
+      function updateTicketSummary() {
+        const selectedDestination = destinationData[destinationSelect.value];
+        const ticketType = document.querySelector(
+          'input[name="ticketType"]:checked',
+        ).value;
+        const quantity = Math.max(1, Number(quantityInput.value) || 1);
+        const price =
+          ticketType === "adult"
+            ? selectedDestination.adult
+            : selectedDestination.child;
+        const total = price * quantity;
+
+        destinationLabel.textContent = selectedDestination.name;
+        ticketSummary.textContent = `${ticketType === "adult" ? "Người lớn" : "Trẻ em"}: ${price.toLocaleString("vi-VN")}đ mỗi vé · Tổng: ${total.toLocaleString("vi-VN")}đ`;
+        ticketRule.textContent = selectedDestination.rule;
+      }
+
+      destinationSelect.addEventListener("change", updateTicketSummary);
+      quantityInput.addEventListener("input", updateTicketSummary);
+      ticketTypeRadios.forEach((radio) =>
+        radio.addEventListener("change", updateTicketSummary),
+      );
+
+      document
+        .querySelector(".booking-form")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          alert(
+            "Đặt vé thành công! Vé sẽ được gửi tới email của bạn trong vài phút.",
+          );
+        });
+
+      updateTicketSummary();
+    </script>
+  </body>
+</html>

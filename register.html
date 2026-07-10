@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký — Hồn Việt</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/register.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">HV</div>
+          <div>
+            <div class="brand-name">Hồn Việt</div>
+            <div class="brand-subtitle">Lịch sử & văn hóa dân tộc</div>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <a href="index.html" class="secondary-btn">Trang chủ</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="auth-page">
+          <div class="auth-card">
+            <div class="auth-header">
+              <div class="brand-mark">HV</div>
+              <h1>Đăng ký</h1>
+              <p class="muted">Tạo tài khoản mới để tham gia cộng đồng</p>
+            </div>
+
+            <form class="auth-form" action="#" method="POST" novalidate>
+              <label class="form-label">
+                Họ và tên
+                <input
+                  type="text"
+                  name="fullname"
+                  placeholder="Nguyễn Văn A"
+                  required
+                />
+              </label>
+
+              <label class="form-label">
+                Email
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </label>
+
+              <label class="form-label">
+                Mật khẩu
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Mật khẩu"
+                  required
+                />
+              </label>
+
+              <label class="form-label">
+                Xác nhận mật khẩu
+                <input
+                  type="password"
+                  name="password_confirm"
+                  placeholder="Nhập lại mật khẩu"
+                  required
+                />
+              </label>
+
+              <button type="submit" class="primary-btn auth-submit">
+                Tạo tài khoản
+              </button>
+
+              <p class="auth-foot">
+                Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+              </p>
+            </form>
+          </div>
+
+          <aside class="auth-visual">
+            <div class="visual-content">
+              <h3>Gia nhập hành trình</h3>
+              <p>
+                Nhận cập nhật sớm nhất về các sự kiện, bài viết và ưu đãi vé.
+              </p>
+              <img
+                src="https://sun-ecommerce-cdn.azureedge.net/ecommerce/service-sites/asset/SunWorldBaNaHill/swold/kham-pha-cau-ban-tay-ba-na-hills-dia-diem-check-in-cuc-hothtml/image9-2.png"
+                alt="Cầu vàng"
+              />
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <div class="brand brand-footer">
+            <div class="brand-mark">HV</div>
+            <div>
+              <div class="brand-name">Hồn Việt</div>
+              <div class="brand-subtitle">Lịch sử & văn hóa dân tộc</div>
+            </div>
+          </div>
+          <p>
+            Khám phá câu chuyện của đất nước qua từng di tích, lễ hội và vùng
+            đất.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Giới thiệu</a>
+          <a href="#">Tin tức</a>
+          <a href="#">Liên hệ</a>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="JS/register.js"></script>
+  </body>
+</html>

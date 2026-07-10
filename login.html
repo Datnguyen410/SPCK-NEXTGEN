@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập — Hồn Việt</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/login.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">HV</div>
+          <div>
+            <div class="brand-name">Hồn Việt</div>
+            <div class="brand-subtitle">Lịch sử & văn hóa dân tộc</div>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <a href="index.html" class="secondary-btn">Trang chủ</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="auth-page">
+          <div class="auth-card">
+            <div class="auth-header">
+              <div class="brand-mark">HV</div>
+              <h1>Đăng nhập</h1>
+              <p class="muted">
+                Đăng nhập để tiếp tục khám phá di sản và tin tức
+              </p>
+            </div>
+
+            <form class="auth-form" action="#" method="POST" novalidate>
+              <label class="form-label">
+                Email
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </label>
+
+              <label class="form-label">
+                Mật khẩu
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Mật khẩu"
+                  required
+                />
+              </label>
+
+              <div class="auth-actions">
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="remember" /> Ghi nhớ đăng nhập
+                </label>
+
+                <a href="#" class="muted">Quên mật khẩu?</a>
+              </div>
+
+              <button type="submit" class="primary-btn auth-submit">
+                Đăng nhập
+              </button>
+
+              <p class="auth-foot">
+                Chưa có tài khoản? <a href="register.html">Đăng ký</a>
+              </p>
+            </form>
+          </div>
+
+          <aside class="auth-visual">
+            <div class="visual-content">
+              <h3>Chạm vào văn hóa</h3>
+              <p>
+                Truy cập bộ sưu tập hình ảnh, bài viết và vé tham quan — tất cả
+                trong một nơi.
+              </p>
+              <img
+                src="https://mia.vn/media/uploads/blog-du-lich/fansipan-013-1698557260.jpg"
+                alt="di sản"
+              />
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          <div class="brand brand-footer">
+            <div class="brand-mark">HV</div>
+            <div>
+              <div class="brand-name">Hồn Việt</div>
+              <div class="brand-subtitle">Lịch sử & văn hóa dân tộc</div>
+            </div>
+          </div>
+          <p>
+            Khám phá câu chuyện của đất nước qua từng di tích, lễ hội và vùng
+            đất.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Giới thiệu</a>
+          <a href="#">Tin tức</a>
+          <a href="#">Liên hệ</a>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="JS/login.js"></script>
+  </body>
+</html>
