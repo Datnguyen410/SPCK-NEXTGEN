@@ -18,7 +18,10 @@
         </div>
 
         <div class="search-box">
-          <input type="search" placeholder="Tìm kiếm di tích , làng nghề , văn hóa , dân tộc" />
+          <input
+            type="search"
+            placeholder="Tìm kiếm di tích , làng nghề , văn hóa , dân tộc"
+          />
         </div>
 
         <div class="top-actions">
@@ -91,7 +94,10 @@
               />
               <div class="carousel-caption">
                 <strong>Kinh thành Huế</strong>
-                <span>Nơi chứng kiến triều đại phong kiến cuối cùng của Việt Nam.</span>
+                <span
+                  >Nơi chứng kiến triều đại phong kiến cuối cùng của Việt
+                  Nam.</span
+                >
               </div>
             </article>
             <article class="carousel-card">
@@ -101,7 +107,10 @@
               />
               <div class="carousel-caption">
                 <strong>Cầu Rồng</strong>
-                <span>Một trong những biểu tượng nổi bật của thành phố Đà Nẵng.</span>
+                <span
+                  >Một trong những biểu tượng nổi bật của thành phố Đà
+                  Nẵng.</span
+                >
               </div>
             </article>
           </div>
@@ -147,6 +156,29 @@
       </footer>
     </div>
 
+    <!-- Chatbox HTML -->
+    <div class="chatbox-container">
+      <div class="chatbox-header">
+        <h3>🤖 Trợ Lý Hồn Việt</h3>
+        <button class="close-btn">×</button>
+      </div>
+
+      <div class="chatbox-messages">
+        <!-- Messages will be added here by JavaScript -->
+      </div>
+
+      <div class="chatbox-input">
+        <input type="text" id="messageInput" placeholder="Nhập câu hỏi..." />
+        <button id="sendBtn">Gửi</button>
+      </div>
+    </div>
+
+    <!-- Chatbox Toggle Button -->
+    <button class="chatbox-toggle">💬</button>
+
+    <!-- Chatbox CSS & JS -->
+    <link rel="stylesheet" href="CSS/chatbox.css" />
+    <script src="JS/chatbox.js"></script>
     <script src="JS/main.js"></script>
   </body>
 </html>
